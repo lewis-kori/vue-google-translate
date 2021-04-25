@@ -1,4 +1,4 @@
-# vue-gtranslate2
+# vue-google-translate
 
 ## problem
 
@@ -7,7 +7,7 @@ This package was heavily inspired by [vue-gtranslate](https://github.com/Katalys
 This package enables localization of web apps made with vue by use of google translate.
 As your website and app grows, you may find a need to expand to other markets outside your home country.
 
-If your target market lives across the sea and speaks a different language, you may not have any choice but to localize. However, if those people can speak your  language, consider other aspects (cultural and/or legal) to make an informed decision on whether to translate.
+If your target market lives across the sea and speaks a different language, you may not have any choice but to localize. However, if those people can speak your language, consider other aspects (cultural and/or legal) to make an informed decision on whether to translate.
 
 For more details on what localization is and the potential benefits, [checkout this article](https://alistapart.com/article/do-you-need-to-localize-your-website/).
 
@@ -86,7 +86,7 @@ npm i vue-google-translate
 use in any component
 
 ```vue
-import Translator from "vue-google-translate";
+import { Translator } from 'vue-google-translate';
 <template>
 <div>
 <Translator />
@@ -105,168 +105,170 @@ export default {
 pass an array of countries in the following format
 
 ```JSON
-{
-  code: 'en|af',
-  title: 'Afrikaans',
-},
-{
-  code: 'en|sq',
-  title: 'Albanian',
-},
-{
-  code: 'en|ar',
-  title: 'Arabic',
-},
-{
-  code: 'en|hy',
-  title: 'Armenian',
-},
-{
-  code: 'en|az',
-  title: 'Azerbaijani',
-},
-{
-  code: 'en|eu',
-  title: 'Basque',
-},
-{
-  code: 'en|be',
-  title: 'Belarusian',
-},
-{
-  code: 'en|bg',
-  title: 'Bulgarian',
-},
-{
-  code: 'en|ca',
-  title: 'Catalan',
-},
-{
-  code: 'en|zh-CN',
-  title: 'Chinese (Simplified)',
-},
-{
-  code: 'en|zh-TW',
-  title: 'Chinese (Traditional)',
-},
-{
-  code: 'en|hr',
-  title: 'Croatian',
-},
-{
-  code: 'en|cs',
-  title: 'Czech',
-},
+[
+  {
+    code: 'en|af',
+    title: 'Afrikaans',
+  },
+  {
+    code: 'en|sq',
+    title: 'Albanian',
+  },
+  {
+    code: 'en|ar',
+    title: 'Arabic',
+  },
+  {
+    code: 'en|hy',
+    title: 'Armenian',
+  },
+  {
+    code: 'en|az',
+    title: 'Azerbaijani',
+  },
+  {
+    code: 'en|eu',
+    title: 'Basque',
+  },
+  {
+    code: 'en|be',
+    title: 'Belarusian',
+  },
+  {
+    code: 'en|bg',
+    title: 'Bulgarian',
+  },
+  {
+    code: 'en|ca',
+    title: 'Catalan',
+  },
+  {
+    code: 'en|zh-CN',
+    title: 'Chinese (Simplified)',
+  },
+  {
+    code: 'en|zh-TW',
+    title: 'Chinese (Traditional)',
+  },
+  {
+    code: 'en|hr',
+    title: 'Croatian',
+  },
+  {
+    code: 'en|cs',
+    title: 'Czech',
+  },
 
-{
-  code: 'en|da',
-  title: 'Danish',
-},
-{
-  code: 'en|nl',
-  title: 'Dutch',
-},
-{
-  code: 'en|en',
-  title: 'English',
-},
-{
-  code: 'en|et',
-  title: 'Estonian',
-},
-{
-  code: 'en|tl',
-  title: 'Filipino',
-},
-{
-  code: 'en|fi',
-  title: 'Finnish',
-},
-{
-  code: 'en|fr',
-  title: 'French',
-},
+  {
+    code: 'en|da',
+    title: 'Danish',
+  },
+  {
+    code: 'en|nl',
+    title: 'Dutch',
+  },
+  {
+    code: 'en|en',
+    title: 'English',
+  },
+  {
+    code: 'en|et',
+    title: 'Estonian',
+  },
+  {
+    code: 'en|tl',
+    title: 'Filipino',
+  },
+  {
+    code: 'en|fi',
+    title: 'Finnish',
+  },
+  {
+    code: 'en|fr',
+    title: 'French',
+  },
 
-{
-  code: 'en|de',
-  title: 'German',
-},
-{
-  code: 'en|el',
-  title: 'Greek',
-},
-{
-  code: 'en|hu',
-  title: 'Hungarian',
-},
-{
-  code: 'en|id',
-  title: 'Indonesian',
-},
-{
-  code: 'en|ga',
-  title: 'Irish',
-},
-{
-  code: 'en|it',
-  title: 'Italian',
-},
-{
-  code: 'en|ja',
-  title: 'Japanese',
-},
-{
-  code: 'en|ko',
-  title: 'Korean',
-},
-{
-  code: 'en|lt',
-  title: 'Lithuanian',
-},
-{
-  code: 'en|ms',
-  title: 'Malay',
-},
-{
-  code: 'en|no',
-  title: 'Norwegian',
-},
-{
-  code: 'en|pl',
-  title: 'Polish',
-},
-{
-  code: 'en|pt',
-  title: 'Portuguese',
-},
-{
-  code: 'en|ro',
-  title: 'Romanian',
-},
-{
-  code: 'en|ru',
-  title: 'Russian',
-},
-{
-  code: 'en|es',
-  title: 'Spanish',
-},
-{
-  code: 'en|sv',
-  title: 'Swedish',
-},
-{
-  code: 'en|th',
-  title: 'Thai',
-},
-{
-  code: 'en|tr',
-  title: 'Turkish',
-},
-{
-  code: 'en|uk',
-  title: 'Ukrainian',
-}
+  {
+    code: 'en|de',
+    title: 'German',
+  },
+  {
+    code: 'en|el',
+    title: 'Greek',
+  },
+  {
+    code: 'en|hu',
+    title: 'Hungarian',
+  },
+  {
+    code: 'en|id',
+    title: 'Indonesian',
+  },
+  {
+    code: 'en|ga',
+    title: 'Irish',
+  },
+  {
+    code: 'en|it',
+    title: 'Italian',
+  },
+  {
+    code: 'en|ja',
+    title: 'Japanese',
+  },
+  {
+    code: 'en|ko',
+    title: 'Korean',
+  },
+  {
+    code: 'en|lt',
+    title: 'Lithuanian',
+  },
+  {
+    code: 'en|ms',
+    title: 'Malay',
+  },
+  {
+    code: 'en|no',
+    title: 'Norwegian',
+  },
+  {
+    code: 'en|pl',
+    title: 'Polish',
+  },
+  {
+    code: 'en|pt',
+    title: 'Portuguese',
+  },
+  {
+    code: 'en|ro',
+    title: 'Romanian',
+  },
+  {
+    code: 'en|ru',
+    title: 'Russian',
+  },
+  {
+    code: 'en|es',
+    title: 'Spanish',
+  },
+  {
+    code: 'en|sv',
+    title: 'Swedish',
+  },
+  {
+    code: 'en|th',
+    title: 'Thai',
+  },
+  {
+    code: 'en|tr',
+    title: 'Turkish',
+  },
+  {
+    code: 'en|uk',
+    title: 'Ukrainian',
+  }
+]
 ```
 
 These are the available ones with images for now.
