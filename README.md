@@ -282,3 +282,18 @@ an optional emit event is also available as
   </div>
 </template>
 ```
+
+### styling
+
+should you wish to get rid of the google banners, insert the following css in a global css file and import this file in your main/index.js files inside `src`
+
+```css
+/* gets rid of the banner at the top of the page */
+body {
+  top: 0 !important;
+}
+/* get rids of the banner at the bottom of the web page */
+.skiptranslate {
+  display: none !important;
+}
+```
