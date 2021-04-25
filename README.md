@@ -104,7 +104,7 @@ export default {
 
 pass an array of countries in the following format
 
-```JSON
+```json
 [
   {
     code: 'en|af',
