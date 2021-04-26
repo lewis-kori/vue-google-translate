@@ -1,6 +1,6 @@
 {
   "name": "vue-google-translate",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A vue.js wrapper for the google translate API. The package easens localization of vue.js powered web apps.",
   "author": {
     "name": "Lewis Kori",
