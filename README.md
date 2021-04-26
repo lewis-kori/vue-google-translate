@@ -24,23 +24,19 @@ npm i vue-google-translate
 //index.html
 
 <head>
-  <script
-    type="text/javascript"
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-  ></script>
-
   <script type="text/javascript">
-    function googleTranslateElementInit2() {
+    function googleTranslateElementInit() {
       new google.translate.TranslateElement(
         { pageLanguage: 'en', autoDisplay: false },
         'app'
       );
     }
-    // app here can be changed to the default id of your vue app available in App.vue
+    // app can be changed to the default id of your vue app available in App.vue or an id section of where
+    // you need translated
   </script>
   <script
     type="text/javascript"
-    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
   ></script>
   <script type="text/javascript">
     /* <![CDATA[ */
