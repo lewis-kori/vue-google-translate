@@ -8,7 +8,7 @@
             <img
               :alt="country.alt"
               :src="
-                `https://cdn.jsdelivr.net/npm/vue-gtranslate/img/flags/__${country.title}.png`
+                `https://cdn.jsdelivr.net/gh/lewis-kori/vue-google-translate/src/assets/images/flags/__${country.title}.png`
               "
               class="flag"
             />
