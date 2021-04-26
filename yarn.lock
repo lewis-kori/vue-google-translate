@@ -8328,11 +8328,6 @@ void-elements@^2.0.1:
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
   integrity sha1-wGavtYK7HLQSjWDqkjkulNXp2+w=
 
-vue-google-translate@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/vue-google-translate/-/vue-google-translate-0.0.1.tgz#10eb0232bc662dda461424caa7508dbb9b1f230e"
-  integrity sha512-wZHw458kCK2vd5Mk7+6+/aNHjr1YLVRItzwAyet+8Xku5NemHmVFmQGiVeeAV1QPmiLSzBPevjCo4sAVd8Q4cA==
-
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
