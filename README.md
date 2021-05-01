@@ -1,5 +1,16 @@
 # vue-google-translate
 
+> A vue.js package that allows for localization of web apps.
+
+## Table of Contents
+
+ 1. [Problem](#problem)
+ 2. [Demo](#demo)
+ 3. [Installation](#installation)
+ 4. [Usage](#usage)
+    - [Props](#props)
+ 5. [License](#license)
+
 ## problem
 
 This package was heavily inspired by [vue-gtranslate](https://github.com/Katalyst33/vue-gtranslate).
@@ -11,14 +22,18 @@ If your target market lives across the sea and speaks a different language, you 
 
 For more details on what localization is and the potential benefits, [checkout this article](https://alistapart.com/article/do-you-need-to-localize-your-website/).
 
-## installation
+## Demo
+
+To view the package in action, check it out [here.](https://codesandbox.io/s/wz1ln)
+
+## Installation
 
 ```text
 yarn add vue-google-translate
 npm i vue-google-translate
 ```
 
-## usage
+## Usage
 
 ```html
 //index.html
@@ -293,3 +308,7 @@ body {
   display: none !important;
 }
 ```
+
+## License
+
+vue-google-translate is an open source software licensed under [MIT](https://github.com/lewis-kori/vue-google-translate/blob/main/LICENSE).
