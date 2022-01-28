@@ -4,12 +4,12 @@
 
 ## Table of Contents
 
- 1. [Problem](#problem)
- 2. [Demo](#demo)
- 3. [Installation](#installation)
- 4. [Usage](#usage)
+1. [Problem](#problem)
+2. [Demo](#demo)
+3. [Installation](#installation)
+4. [Usage](#usage)
     - [Props](#props)
- 5. [License](#license)
+5. [License](#license)
 
 ## problem
 
@@ -56,8 +56,8 @@ npm i vue-google-translate
   <script type="text/javascript">
     /* <![CDATA[ */
     eval(
-      (function(p, a, c, k, e, r) {
-        e = function(c) {
+      (function (p, a, c, k, e, r) {
+        e = function (c) {
           return (
             (c < a ? '' : e(parseInt(c / a))) +
             ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36))
@@ -66,11 +66,11 @@ npm i vue-google-translate
         if (!''.replace(/^/, String)) {
           while (c--) r[e(c)] = k[c] || e(c);
           k = [
-            function(e) {
+            function (e) {
               return r[e];
             },
           ];
-          e = function() {
+          e = function () {
             return '\\w+';
           };
           c = 1;
@@ -278,13 +278,37 @@ pass an array of countries in the following format
   {
     code: 'en|uk',
     title: 'Ukrainian',
-  }
-]
+  },
+];
 ```
 
 These are the available ones with images for now.
+If you wish to add a new language not in the default list, pass the new language with and additional property `flagIconUrl`.
+[Here's a good place](https://flagicons.lipis.dev/) to source these icons.
+Ensure the translation code must a valid one as well.
+You can get the supported languages and their codes from [this website](https://www.labnol.org/code/19899-google-translate-languages#google-translate-languages).
 
-an optional emit event is also available as
+Additionally you can pass an alt text as a key in the translation object. This is useful for accessibility.
+Your custom translations would look something like this.
+
+```javascript
+[
+  {
+    code: 'en|iw',
+    title: 'Hebrew',
+    flagIconUrl: 'https://flagicons.lipis.dev/flags/4x3/il.svg',
+    altText: 'Hebrew language translation',
+  },
+  {
+    code: 'ga|pl',
+    title: 'Polish',
+    flagIconUrl: 'https://flagicons.lipis.dev/flags/4x3/pl.svg',
+    altText: 'Poland flag Icon',
+  },
+];
+```
+
+An optional emit event is also available as
 
 ```vue
 <template>
