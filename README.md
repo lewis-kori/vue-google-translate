@@ -8,8 +8,9 @@
 2. [Demo](#demo)
 3. [Installation](#installation)
 4. [Usage](#usage)
-    - [Props](#props)
-5. [License](#license)
+   - [Props](#props)
+5. [Default languages](#default-languages)
+6. [License](#license)
 
 ## problem
 
@@ -114,6 +115,80 @@ export default {
 ### props
 
 pass an array of countries in the following format
+
+```javascript
+[
+  {
+    code: 'en|af',
+    title: 'Afrikaans',
+  },
+  {
+    code: 'en|ar',
+    title: 'Arabic',
+  },
+  {
+    code: 'en|ko',
+    title: 'Korean',
+  },
+  {
+    code: 'en|lt',
+    title: 'Lithuanian',
+  },
+];
+```
+
+A full list of the [default languages is at the bottom of this doc](#default-languages).
+If you wish to add a new language not in the default list, pass the new language with and additional property `flagIconUrl`.
+[Here's a good place](https://flagicons.lipis.dev/) to source these icons.
+Ensure the translation code is a valid one as well.
+You can get the supported languages and their codes from [this website](https://www.labnol.org/code/19899-google-translate-languages#google-translate-languages).
+
+Additionally you can pass an alt text as a key in the translation object. This is useful for accessibility.
+Your custom translations would look something like this.
+
+```javascript
+[
+  {
+    code: 'en|iw',
+    title: 'Hebrew',
+    flagIconUrl: 'https://flagicons.lipis.dev/flags/4x3/il.svg',
+    altText: 'Hebrew language translation',
+  },
+  {
+    code: 'ga|pl',
+    title: 'Polish',
+    flagIconUrl: 'https://flagicons.lipis.dev/flags/4x3/pl.svg',
+    altText: 'Poland flag Icon',
+  },
+];
+```
+
+An optional emit event is also available as
+
+```vue
+<template>
+  <div>
+    <Translator @on-country-click="customEvent" :countries="arrayOfCountries" />
+  </div>
+</template>
+```
+
+### styling
+
+should you wish to get rid of the google banners, insert the following css in a global css file and import this file in your main/index.js files inside `src`
+
+```css
+/* gets rid of the banner at the top of the page */
+body {
+  top: 0 !important;
+}
+/* get rids of the banner at the bottom of the web page */
+.skiptranslate {
+  display: none !important;
+}
+```
+
+#### Default languages
 
 ```javascript
 [
@@ -280,57 +355,6 @@ pass an array of countries in the following format
     title: 'Ukrainian',
   },
 ];
-```
-
-These are the available ones with images for now.
-If you wish to add a new language not in the default list, pass the new language with and additional property `flagIconUrl`.
-[Here's a good place](https://flagicons.lipis.dev/) to source these icons.
-Ensure the translation code must a valid one as well.
-You can get the supported languages and their codes from [this website](https://www.labnol.org/code/19899-google-translate-languages#google-translate-languages).
-
-Additionally you can pass an alt text as a key in the translation object. This is useful for accessibility.
-Your custom translations would look something like this.
-
-```javascript
-[
-  {
-    code: 'en|iw',
-    title: 'Hebrew',
-    flagIconUrl: 'https://flagicons.lipis.dev/flags/4x3/il.svg',
-    altText: 'Hebrew language translation',
-  },
-  {
-    code: 'ga|pl',
-    title: 'Polish',
-    flagIconUrl: 'https://flagicons.lipis.dev/flags/4x3/pl.svg',
-    altText: 'Poland flag Icon',
-  },
-];
-```
-
-An optional emit event is also available as
-
-```vue
-<template>
-  <div>
-    <Translator @on-country-click="customEvent" :countries="arrayOfCountries" />
-  </div>
-</template>
-```
-
-### styling
-
-should you wish to get rid of the google banners, insert the following css in a global css file and import this file in your main/index.js files inside `src`
-
-```css
-/* gets rid of the banner at the top of the page */
-body {
-  top: 0 !important;
-}
-/* get rids of the banner at the bottom of the web page */
-.skiptranslate {
-  display: none !important;
-}
 ```
 
 ## License
