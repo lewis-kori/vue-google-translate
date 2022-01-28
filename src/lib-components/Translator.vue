@@ -1,14 +1,16 @@
 /* eslint-disable */
 <template>
   <div>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3  p-4 shadow m-4 rounded-lg">
-      <div v-for="country in countries" class="py-2" :key="country.id">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 p-4 shadow m-4 rounded-lg">
+      <div v-for="country in countries" class="py-2" :key="country.title">
         <span @click="doTranslation(country.code)" :title="country.title">
           <span class="language-item">
             <img
-              :alt="country.alt"
+              :alt="country.altText ? country.altText : `${country.title} flag icon`"
               :src="
-                `https://cdn.jsdelivr.net/gh/lewis-kori/vue-google-translate/src/assets/images/flags/__${country.title}.png`
+                checkIfCountryIsAvailableInDefaults(country)
+                  ? `https://cdn.jsdelivr.net/gh/lewis-kori/vue-google-translate/src/assets/images/flags/__${country.title}.png`
+                  : country.flagIconUrl
               "
               class="flag"
             />
@@ -32,173 +34,178 @@ export default {
     countries: {
       type: Array,
       default() {
-        return [
-          {
-            code: 'en|af',
-            title: 'Afrikaans',
-          },
-          {
-            code: 'en|sq',
-            title: 'Albanian',
-          },
-          {
-            code: 'en|ar',
-            title: 'Arabic',
-          },
-          {
-            code: 'en|hy',
-            title: 'Armenian',
-          },
-          {
-            code: 'en|az',
-            title: 'Azerbaijani',
-          },
-          {
-            code: 'en|eu',
-            title: 'Basque',
-          },
-          {
-            code: 'en|be',
-            title: 'Belarusian',
-          },
-          {
-            code: 'en|bg',
-            title: 'Bulgarian',
-          },
-          {
-            code: 'en|ca',
-            title: 'Catalan',
-          },
-          {
-            code: 'en|zh-CN',
-            title: 'Chinese (Simplified)',
-          },
-          {
-            code: 'en|zh-TW',
-            title: 'Chinese (Traditional)',
-          },
-          {
-            code: 'en|hr',
-            title: 'Croatian',
-          },
-          {
-            code: 'en|cs',
-            title: 'Czech',
-          },
-
-          {
-            code: 'en|da',
-            title: 'Danish',
-          },
-          {
-            code: 'en|nl',
-            title: 'Dutch',
-          },
-          {
-            code: 'en|en',
-            title: 'English',
-          },
-          {
-            code: 'en|et',
-            title: 'Estonian',
-          },
-          {
-            code: 'en|tl',
-            title: 'Filipino',
-          },
-          {
-            code: 'en|fi',
-            title: 'Finnish',
-          },
-          {
-            code: 'en|fr',
-            title: 'French',
-          },
-
-          {
-            code: 'en|de',
-            title: 'German',
-          },
-          {
-            code: 'en|el',
-            title: 'Greek',
-          },
-          {
-            code: 'en|hu',
-            title: 'Hungarian',
-          },
-          {
-            code: 'en|id',
-            title: 'Indonesian',
-          },
-          {
-            code: 'en|ga',
-            title: 'Irish',
-          },
-          {
-            code: 'en|it',
-            title: 'Italian',
-          },
-          {
-            code: 'en|ja',
-            title: 'Japanese',
-          },
-          {
-            code: 'en|ko',
-            title: 'Korean',
-          },
-          {
-            code: 'en|lt',
-            title: 'Lithuanian',
-          },
-          {
-            code: 'en|ms',
-            title: 'Malay',
-          },
-          {
-            code: 'en|no',
-            title: 'Norwegian',
-          },
-          {
-            code: 'en|pl',
-            title: 'Polish',
-          },
-
-          {
-            code: 'en|pt',
-            title: 'Portuguese',
-          },
-          {
-            code: '"en|ro',
-            title: 'Romanian',
-          },
-          {
-            code: 'en|ru',
-            title: 'Russian',
-          },
-          {
-            code: 'en|es',
-            title: 'Spanish',
-          },
-          {
-            code: 'en|sv',
-            title: 'Swedish',
-          },
-          {
-            code: 'en|th',
-            title: 'Thai',
-          },
-          {
-            code: 'en|tr',
-            title: 'Turkish',
-          },
-          {
-            code: 'en|uk',
-            title: 'Ukrainian',
-          },
-        ];
+        return this.defaultCountries;
       },
     },
+  },
+  data() {
+    return {
+      defaultCountries: [
+        {
+          code: 'en|af',
+          title: 'Afrikaans',
+        },
+        {
+          code: 'en|sq',
+          title: 'Albanian',
+        },
+        {
+          code: 'en|ar',
+          title: 'Arabic',
+        },
+        {
+          code: 'en|hy',
+          title: 'Armenian',
+        },
+        {
+          code: 'en|az',
+          title: 'Azerbaijani',
+        },
+        {
+          code: 'en|eu',
+          title: 'Basque',
+        },
+        {
+          code: 'en|be',
+          title: 'Belarusian',
+        },
+        {
+          code: 'en|bg',
+          title: 'Bulgarian',
+        },
+        {
+          code: 'en|ca',
+          title: 'Catalan',
+        },
+        {
+          code: 'en|zh-CN',
+          title: 'Chinese (Simplified)',
+        },
+        {
+          code: 'en|zh-TW',
+          title: 'Chinese (Traditional)',
+        },
+        {
+          code: 'en|hr',
+          title: 'Croatian',
+        },
+        {
+          code: 'en|cs',
+          title: 'Czech',
+        },
+
+        {
+          code: 'en|da',
+          title: 'Danish',
+        },
+        {
+          code: 'en|nl',
+          title: 'Dutch',
+        },
+        {
+          code: 'en|en',
+          title: 'English',
+        },
+        {
+          code: 'en|et',
+          title: 'Estonian',
+        },
+        {
+          code: 'en|tl',
+          title: 'Filipino',
+        },
+        {
+          code: 'en|fi',
+          title: 'Finnish',
+        },
+        {
+          code: 'en|fr',
+          title: 'French',
+        },
+
+        {
+          code: 'en|de',
+          title: 'German',
+        },
+        {
+          code: 'en|el',
+          title: 'Greek',
+        },
+        {
+          code: 'en|hu',
+          title: 'Hungarian',
+        },
+        {
+          code: 'en|id',
+          title: 'Indonesian',
+        },
+        {
+          code: 'en|ga',
+          title: 'Irish',
+        },
+        {
+          code: 'en|it',
+          title: 'Italian',
+        },
+        {
+          code: 'en|ja',
+          title: 'Japanese',
+        },
+        {
+          code: 'en|ko',
+          title: 'Korean',
+        },
+        {
+          code: 'en|lt',
+          title: 'Lithuanian',
+        },
+        {
+          code: 'en|ms',
+          title: 'Malay',
+        },
+        {
+          code: 'en|no',
+          title: 'Norwegian',
+        },
+        {
+          code: 'en|pl',
+          title: 'Polish',
+        },
+
+        {
+          code: 'en|pt',
+          title: 'Portuguese',
+        },
+        {
+          code: '"en|ro',
+          title: 'Romanian',
+        },
+        {
+          code: 'en|ru',
+          title: 'Russian',
+        },
+        {
+          code: 'en|es',
+          title: 'Spanish',
+        },
+        {
+          code: 'en|sv',
+          title: 'Swedish',
+        },
+        {
+          code: 'en|th',
+          title: 'Thai',
+        },
+        {
+          code: 'en|tr',
+          title: 'Turkish',
+        },
+        {
+          code: 'en|uk',
+          title: 'Ukrainian',
+        },
+      ],
+    };
   },
   computed: {
     hasClickListener() {
@@ -207,11 +214,20 @@ export default {
   },
   methods: {
     doTranslation(code) {
-      window.doGTranslate(code);
-      if (this.hasClickListener) {
-        this.$emit('on-country-click');
+      // ensure the code doesn't break on server side
+      if (typeof window !== 'undefined') {
+        window.doGTranslate(code);
+        if (this.hasClickListener) {
+          this.$emit('on-country-click');
+        }
       }
-      return false;
+    },
+    checkIfCountryIsAvailableInDefaults(countryObject) {
+      return this.defaultCountries.some(
+        (country) =>
+          country.code.toLowerCase() === countryObject.code.toLowerCase() &&
+          country.title.toLowerCase() === countryObject.title.toLowerCase()
+      );
     },
   },
 };
